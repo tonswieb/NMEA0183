@@ -309,7 +309,7 @@ bool NMEA0183ParseRMC_nc(const tNMEA0183Msg &NMEA0183Msg, double &GPSTime, doubl
     time_t lDT;
 
     GPSTime=NMEA0183GPTimeToSeconds(NMEA0183Msg.Field(0));
-    Status==NMEA0183Msg.Field(1)[0];
+    Status=NMEA0183Msg.Field(1)[0];
     Latitude=LatLonToDouble(NMEA0183Msg.Field(2),NMEA0183Msg.Field(3)[0]);
     Longitude=LatLonToDouble(NMEA0183Msg.Field(4),NMEA0183Msg.Field(5)[0]);
     SOG=atof(NMEA0183Msg.Field(6))*knToms;
