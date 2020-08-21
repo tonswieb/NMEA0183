@@ -643,8 +643,8 @@ bool NMEA0183ParseBOD_nc(const tNMEA0183Msg &NMEA0183Msg, tBOD &bod) {
     bool result=( NMEA0183Msg.FieldCount()>=6);
 
     if ( result ) {
-      bod.trueBearing = atof(NMEA0183Msg.Field(0))*degToRad;
-      bod.magBearing = atof(NMEA0183Msg.Field(2))*degToRad;
+      bod.trueBearing = NMEA0183GetDouble(NMEA0183Msg.Field(0),degToRad);
+      bod.magBearing = NMEA0183GetDouble(NMEA0183Msg.Field(2),degToRad);
       strncpy(bod.destID,NMEA0183Msg.Field(4),sizeof(bod.destID)/sizeof(char));
       bod.destID[sizeof(bod.destID)/sizeof(char)-1]='\0';
       strncpy(bod.originID,NMEA0183Msg.Field(5),sizeof(bod.originID)/sizeof(char));
